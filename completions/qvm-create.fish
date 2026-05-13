@@ -1,0 +1,7 @@
+complete -c qvm-create -l class    -r -f -a 'AppVM StandaloneVM TemplateVM DispVM' -d 'VM class'
+complete -c qvm-create -s t -l template -r -f -a '(__qvm_vms)'    -d 'Template VM'
+complete -c qvm-create -s l -l label    -r -f -a 'red orange yellow green gray blue purple black' -d 'Label color'
+complete -c qvm-create -s n -l netvm    -r -f -a '(__qvm_vms)'    -d 'Net VM'
+complete -c qvm-create -l property   -r -d 'Set property (prop=value)'
+complete -c qvm-create -s P -l pool  -r -f -a '(__qvm_pools)'     -d 'Storage pool'
+complete -c qvm-create -s h -l help     -d 'Show help'
