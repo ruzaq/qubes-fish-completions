@@ -1,0 +1,19 @@
+usage: qvm-pool [--verbose] [--quiet] [--help] [--version] [-o options] [-l |
+                -i POOLNAME | -a NAME DRIVER | -r NAME | -s POOLNAME |
+                --help-drivers]
+
+Manages Qubes pools and their options
+
+options:
+  --verbose, -v         increase verbosity
+  --quiet, -q           decrease verbosity
+  --help, -h            show this help message and exit
+  --version             show program's version number and exit
+  -o options            comma-separated list of driver options
+  -l, --list            list all pools and exit (default action)
+  -i, --info POOLNAME   print pool info and exit
+  -a, --add NAME DRIVER
+                        add pool
+  -r, --remove NAME     remove pool
+  -s, --set POOLNAME    modify pool (use -o to specify modifications)
+  --help-drivers        list all drivers with their options and exit

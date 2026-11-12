@@ -1,3 +1,3 @@
-function __qvm_vms -d 'List all QubesOS VMs'
-    qvm-ls --raw-list 2>/dev/null
+function __qvm_vms -d 'All qubes, class as description'
+    qvm-ls --raw-data --fields NAME,CLASS 2>/dev/null | string replace '|' \t
 end

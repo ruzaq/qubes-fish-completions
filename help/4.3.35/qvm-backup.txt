@@ -1,0 +1,40 @@
+usage: qvm-backup [--verbose] [--quiet] [--help] [--version] [--yes]
+                  [--profile PROFILE] [--exclude EXCLUDE_LIST]
+                  [--dest-vm APPVM] [--encrypt]
+                  [--passphrase-file PASSPHRASE_FILE] [--compress]
+                  [--no-compress] [--compress-filter COMPRESSION]
+                  [--save-profile SAVE_PROFILE]
+                  [backup_location] [vms ...]
+
+options:
+  --verbose, -v         increase verbosity
+  --quiet, -q           decrease verbosity
+  --help, -h            show this help message and exit
+  --version             show program's version number and exit
+  --yes, -y             Do not ask for confirmation
+  --profile PROFILE     Perform backup defined by a given profile
+
+Profile setup:
+  Manually specify profile options (could not be used together with
+  --profile option)
+
+  --exclude, -x EXCLUDE_LIST
+                        Exclude the specified VM from the backup (may be
+                        repeated)
+  --dest-vm, -d APPVM   Specify the destination VM to which the backup will be
+                        sent (implies -e)
+  --encrypt, -e         Ignored, backup is always encrypted
+  --passphrase-file, -p PASSPHRASE_FILE
+                        Read passphrase from a file, or use '-' to read from
+                        stdin
+  --compress, -z        Compress the backup (default)
+  --no-compress         Do not compress the backup
+  --compress-filter, -Z COMPRESSION
+                        Specify a non-default compression filter program
+                        (default: gzip)
+  --save-profile SAVE_PROFILE
+                        Save profile under selected name for further
+                        use.Available only in dom0.
+  backup_location       Backup location (absolute directory path, or command
+                        to pipe backup to)
+  vms                   Backup only those VMs

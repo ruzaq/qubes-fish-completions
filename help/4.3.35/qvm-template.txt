@@ -1,0 +1,131 @@
+usage: qvm-template [--verbose] [--quiet] [--help] [--version]
+                    [--repo-files REPO_FILES] [--keyring KEYRING]
+                    [--updatevm UPDATEVM] [--enablerepo REPOID]
+                    [--disablerepo REPOID] [--repoid REPOS]
+                    [--releasever RELEASEVER] [--refresh]
+                    [--cachedir CACHEDIR] [--keep-cache] [--yes]
+                    {install,reinstall,downgrade,upgrade,download,list,info,search,remove,purge,clean,repolist,migrate-from-rpmdb} ...
+
+Tool for managing VM templates.
+
+options:
+  --verbose, -v         increase verbosity (default: 1)
+  --quiet, -q           decrease verbosity (default: 0)
+  --help, -h            show this help message and exit
+  --version             show program's version number and exit
+  --repo-files REPO_FILES
+                        Specify files containing DNF repository configuration.
+                        Can be used more than once. (default:
+                        ['/etc/qubes/repo-templates/*.repo'])
+  --keyring KEYRING     Specify a file containing default RPM public key.
+                        Individual repositories may point at repo-specific key
+                        using 'gpgkey' option (default: /etc/qubes/repo-
+                        templates/keys/RPM-GPG-KEY-qubes-4.3-primary)
+  --updatevm UPDATEVM   Specify VM to download updates from. (Set to empty
+                        string to specify the current VM.) (default: global
+                        UpdateVM)
+  --enablerepo REPOID   Enable additional repositories by an id or a glob. Can
+                        be used more than once. (default: [])
+  --disablerepo REPOID  Disable certain repositories by an id or a glob. Can
+                        be used more than once. (default: [])
+  --repoid REPOS        Enable just specific repositories by an id or a glob.
+                        Can be used more than once. (default: [])
+  --releasever RELEASEVER
+                        Override Qubes release version. (default: 4.3)
+  --refresh             Set repository metadata as expired before running the
+                        command. (default: False)
+  --cachedir CACHEDIR   Specify cache directory. (default:
+                        ~/.cache/qvm-template)
+  --keep-cache          Keep downloaded packages in cache dir (default: False)
+  --yes                 Assume "yes" to questions. (default: False)
+
+subcommands:
+  Command to run.
+
+  {install,reinstall,downgrade,upgrade,download,list,info,search,remove,purge,clean,repolist,migrate-from-rpmdb}
+    install             Install template packages.
+    reinstall           Reinstall template packages.
+    downgrade           Downgrade template packages.
+    upgrade             Upgrade template packages.
+    download            Download template packages.
+    list                List templates.
+    info                Display details about templates.
+    search              Search template details for the given string.
+    remove              Remove installed templates.
+    purge               Remove installed templates and associated VMs.
+    clean               Remove locally cached packages.
+    repolist            Show configured repositories.
+    migrate-from-rpmdb  Import R4.0 templates info to R4.1 format
+
+Command 'install':
+  usage: qvm-template install [--verbose] [--quiet] [--help] [--version]
+                              [--pool POOL] [--allow-pv] [--skip-start]
+                              [--downloaddir DOWNLOADDIR] [--retries RETRIES]
+                              [--nogpgcheck]
+                              [TEMPLATESPEC ...]
+
+Command 'reinstall':
+  usage: qvm-template reinstall [--verbose] [--quiet] [--help] [--version]
+                                [--allow-pv] [--skip-start]
+                                [--downloaddir DOWNLOADDIR] [--retries RETRIES]
+                                [--nogpgcheck]
+                                [TEMPLATESPEC ...]
+
+Command 'downgrade':
+  usage: qvm-template downgrade [--verbose] [--quiet] [--help] [--version]
+                                [--allow-pv] [--skip-start]
+                                [--downloaddir DOWNLOADDIR] [--retries RETRIES]
+                                [--nogpgcheck]
+                                [TEMPLATESPEC ...]
+
+Command 'upgrade':
+  usage: qvm-template upgrade [--verbose] [--quiet] [--help] [--version]
+                              [--allow-pv] [--skip-start]
+                              [--downloaddir DOWNLOADDIR] [--retries RETRIES]
+                              [--nogpgcheck]
+                              [TEMPLATESPEC ...]
+
+Command 'download':
+  usage: qvm-template download [--verbose] [--quiet] [--help] [--version]
+                               [--downloaddir DOWNLOADDIR] [--retries RETRIES]
+                               [--nogpgcheck]
+                               [TEMPLATESPEC ...]
+
+Command 'list':
+  usage: qvm-template list [--verbose] [--quiet] [--help] [--version] [--all]
+                           [--installed] [--available] [--extras] [--upgrades]
+                           [--all-versions] [--machine-readable |
+                           --machine-readable-json]
+                           [TEMPLATESPEC ...]
+
+Command 'info':
+  usage: qvm-template info [--verbose] [--quiet] [--help] [--version] [--all]
+                           [--installed] [--available] [--extras] [--upgrades]
+                           [--all-versions] [--machine-readable |
+                           --machine-readable-json]
+                           [TEMPLATESPEC ...]
+
+Command 'search':
+  usage: qvm-template search [--verbose] [--quiet] [--help] [--version] [--all]
+                             [PATTERN ...]
+
+Command 'remove':
+  usage: qvm-template remove [--verbose] [--quiet] [--help] [--version]
+                             [--disassoc]
+                             [TEMPLATE ...]
+
+Command 'purge':
+  usage: qvm-template purge [--verbose] [--quiet] [--help] [--version]
+                            [TEMPLATE ...]
+
+Command 'clean':
+  usage: qvm-template clean [--verbose] [--quiet] [--help] [--version]
+
+Command 'repolist':
+  usage: qvm-template repolist [--verbose] [--quiet] [--help] [--version]
+                               [--all | --enabled | --disabled]
+                               [REPOS ...]
+
+Command 'migrate-from-rpmdb':
+  usage: qvm-template migrate-from-rpmdb [--verbose] [--quiet] [--help]
+                                         [--version]

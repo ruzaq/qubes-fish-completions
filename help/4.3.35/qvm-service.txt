@@ -1,0 +1,21 @@
+usage: qvm-service [--verbose] [--quiet] [--help] [--version] [--unset]
+                   [--list] [--enable] [--disable]
+                   VMNAME [SERVICE] [VALUE]
+
+manage domain's services
+
+positional arguments:
+  VMNAME                a domain name
+  SERVICE               name of the feature
+  VALUE                 new value of the service (on/off)
+
+options:
+  --verbose, -v         increase verbosity
+  --quiet, -q           decrease verbosity
+  --help, -h            show this help message and exit
+  --version             show program's version number and exit
+  --unset, --default, --delete, -D
+                        unset service (default to VM preference)
+  --list, -l            list services (default action)
+  --enable, -e          enable service (same as setting "on" value)
+  --disable, -d         disable service (same as setting "off" value)

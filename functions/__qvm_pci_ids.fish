@@ -1,3 +1,3 @@
-function __qvm_pci_ids -d 'List available PCI BACKEND:DEVICE_ID pairs'
-    qvm-device pci list 2>/dev/null | awk 'NR>1 {print $1}'
+function __qvm_pci_ids -d 'Available pci devices, description included'
+    qvm-device pci list 2>/dev/null | string match -rv '^BACKEND' | string replace -r '^(\S+)\s+' '$1\t'
 end

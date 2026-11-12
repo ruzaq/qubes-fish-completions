@@ -1,0 +1,20 @@
+usage: qvm-pause [--verbose] [--quiet] [--help] [--version] [--all]
+                 [--exclude EXCLUDE] [--suspend]
+                 [VMNAME ...]
+
+pause a qube
+
+positional arguments:
+  VMNAME             zero or more domain names
+
+options:
+  --verbose, -v      increase verbosity
+  --quiet, -q        decrease verbosity
+  --help, -h         show this help message and exit
+  --version          show program's version number and exit
+  --all              perform the action on all qubes
+  --exclude EXCLUDE  exclude the qube from --all
+  --suspend, -S      Put the qube to (S3) suspend mode instead of emergency
+                     pause
+
+Paused qubes will be killed on system shutdown.

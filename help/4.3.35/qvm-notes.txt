@@ -1,0 +1,30 @@
+usage: qvm-notes [--verbose] [--quiet] [--help] [--version] [--force]
+                 [--edit | --print | --import FILENAME | --set 'NOTES' |
+                 --append 'NOTES' | --delete]
+                 VMNAME
+
+Manipulate qube notes
+
+positional arguments:
+  VMNAME                a domain name
+
+options:
+  --verbose, -v         increase verbosity
+  --quiet, -q           decrease verbosity
+  --help, -h            show this help message and exit
+  --version             show program's version number and exit
+  --force, -f           Do not prompt for confirmation; assume `yes`
+
+Notes action options:
+  note: `--edit` is the default action for qube notes.
+
+  --edit, -e            Edit qube notes in $EDITOR (default text editor)
+  --print, -p           Print qube notes
+  --import, -i FILENAME
+                        Import qube notes from file
+  --set, -s 'NOTES'     Set qube notes from provided string
+  --append 'NOTES'      Append the provided string to qube notes
+  --delete, -d          Delete qube notes
+
+Each qube notes is limited to 256KB of clear-text. See program manpage for
+more information on other limitations.

@@ -1,0 +1,44 @@
+#!/bin/bash
+# Stub for read-only qvm-* commands used by the completions. Uses only bash
+# builtins, the test runs with PATH containing nothing but these stubs, so a
+# completion that calls anything else fails loudly instead of touching the
+# system. Every call is logged.
+cmd=${0##*/}
+echo "$cmd $*" >> "$STUB_LOG"
+vms='dom0|AdminVM|Running
+work|AppVM|Running
+personal|AppVM|Halted
+sys-net|AppVM|Running
+debian-13|TemplateVM|Halted
+disp1|DispVM|Paused'
+case "$cmd${*:+ $*}" in
+qvm-ls*)
+    state=; class=; raw_list=0
+    [[ " $* " == *" --running "* ]] && state=Running
+    [[ " $* " == *" --halted "* ]] && state=Halted
+    [[ " $* " == *" --paused "* ]] && state=Paused
+    [[ " $* " == *" --class TemplateVM "* ]] && class=TemplateVM
+    [[ " $* " == *" --raw-list "* ]] && raw_list=1
+    while IFS='|' read -r n c s; do
+        [[ -n $state && $s != "$state" ]] && continue
+        [[ -n $class && $c != "$class" ]] && continue
+        if (( raw_list )); then echo "$n"; else echo "$n|$c"; fi
+    done <<< "$vms" ;;
+"qvm-prefs work")
+    printf '%s\n' 'autostart             D  False' 'label                 -  blue' \
+        'netvm                 D  sys-firewall' 'template              -  debian-13' 'ip                    D  ' ;;
+"qvm-prefs work autostart") echo False ;;
+"qvm-prefs work netvm") echo sys-firewall ;;
+"qvm-prefs work label") echo blue ;;
+"qubes-prefs") printf '%s\n' 'check_updates_vm      D  True' 'default_netvm         -  sys-firewall' ;;
+"qubes-prefs check_updates_vm") echo True ;;
+"qubes-prefs default_netvm") echo sys-firewall ;;
+"qvm-features work") printf '%s\n' 'gui                 1' 'preload-dispvm-max  2' ;;
+"qvm-service work") echo 'cups  on' ;;
+"qvm-tags work list") printf '%s\n' ansible-managed created-by-dom0 ;;
+"qvm-device --list-device-classes") printf '%s\n' block usb pci mic ;;
+"qvm-device usb list")
+    printf '%s\n' 'BACKEND:DEVID  DESCRIPTION            USED BY' 'sys-usb:2-1    Logitech_USB_Receiver' ;;
+"qvm-pool list") printf '%s\n' 'NAME         DRIVER' 'varlibqubes  file-reflink' 'vm-pool      lvm_thin' ;;
+*) echo "UNEXPECTED $cmd $*" >> "$STUB_LOG"; exit 1 ;;
+esac

@@ -1,0 +1,25 @@
+usage: qvm-start [--verbose] [--quiet] [--help] [--version] [--all]
+                 [--exclude EXCLUDE] [--skip-if-running] [--drive DRIVE |
+                 --hddisk IMAGE | --cdrom IMAGE | --install-windows-tools]
+                 [VMNAME ...]
+
+start a domain
+
+positional arguments:
+  VMNAME                zero or more domain names
+
+options:
+  --verbose, -v         increase verbosity
+  --quiet, -q           decrease verbosity
+  --help, -h            show this help message and exit
+  --version             show program's version number and exit
+  --all                 perform the action on all qubes
+  --exclude EXCLUDE     exclude the qube from --all
+  --skip-if-running     Do not fail if the qube is already runnning
+  --drive DRIVE         temporarily attach specified drive as CD/DVD or hard
+                        disk (can be specified with prefix "hd:" or "cdrom:",
+                        default is cdrom)
+  --hddisk IMAGE        temporarily attach specified drive as hard disk
+  --cdrom IMAGE         temporarily attach specified drive as CD/DVD
+  --install-windows-tools
+                        temporarily attach Windows tools CDROM to the domain

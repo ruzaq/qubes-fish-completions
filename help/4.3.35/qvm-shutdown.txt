@@ -1,0 +1,25 @@
+usage: qvm-shutdown [--verbose] [--quiet] [--help] [--version] [--all]
+                    [--exclude EXCLUDE] [--wait] [--timeout TIMEOUT] [--force]
+                    [--dry-run]
+                    [VMNAME ...]
+
+Shutdown a qube
+
+positional arguments:
+  VMNAME             zero or more domain names
+
+options:
+  --verbose, -v      increase verbosity
+  --quiet, -q        decrease verbosity
+  --help, -h         show this help message and exit
+  --version          show program's version number and exit
+  --all              perform the action on all qubes
+  --exclude EXCLUDE  exclude the qube from --all
+  --wait             wait for the VMs to shut down
+  --timeout TIMEOUT  timeout after which domains are killed when using --wait
+                     (default: 60)
+  --force            shut down even if other qubes depend on this one (e.g. as
+                     NetVM or AudioVM); does not affect how the qube itself is
+                     shut down; use with caution
+  --dry-run          don't really shutdown or kill the domains; useful with
+                     --wait

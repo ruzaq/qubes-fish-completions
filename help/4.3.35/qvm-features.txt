@@ -1,0 +1,17 @@
+usage: qvm-features [--verbose] [--quiet] [--help] [--version] [--unset]
+                    VMNAME [FEATURE] [VALUE]
+
+manage domain's features
+
+positional arguments:
+  VMNAME                a domain name
+  FEATURE               name of the feature
+  VALUE                 new value of the feature
+
+options:
+  --verbose, -v         increase verbosity
+  --quiet, -q           decrease verbosity
+  --help, -h            show this help message and exit
+  --version             show program's version number and exit
+  --unset, --default, --delete, -D
+                        unset the feature

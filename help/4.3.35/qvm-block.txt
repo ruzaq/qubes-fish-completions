@@ -1,0 +1,53 @@
+usage: qvm-block [--verbose] [--quiet] [--help] [--version]
+                 [--list-device-classes]
+                 {list,ls,l,attach,at,a,detach,d,dt,assign,s,unassign,u,info,i} ...
+
+Qubes volume and block device management
+
+options:
+  --verbose, -v         increase verbosity
+  --quiet, -q           decrease verbosity
+  --help, -h            show this help message and exit
+  --version             show program's version number and exit
+  --list-device-classes
+
+commands:
+  For more information see qvm-device command -h
+
+  {list,ls,l,attach,at,a,detach,d,dt,assign,s,unassign,u,info,i}
+    list (ls,l)         list devices
+    attach (at,a)       Attach device to domain
+    detach (d,dt)       Detach device from domain
+    assign (s)          Assign device to domain or edit existing assignment
+    unassign (u)        Remove assignment of device from domain
+    info (i)            Show info about device from domain
+
+Command 'list':
+  usage: qvm-block list [--verbose] [--quiet] [--help] [--version]
+                        [--assignments] [--with-sbdf] [--all]
+                        [--exclude EXCLUDE]
+                        [VMNAME ...]
+
+Command 'attach':
+  usage: qvm-block attach [--verbose] [--quiet] [--help] [--version]
+                          [--option OPTION] [--ro] [--persistent]
+                          VMNAME BACKEND:DEVICE_ID
+
+Command 'detach':
+  usage: qvm-block detach [--verbose] [--quiet] [--help] [--version]
+                          VMNAME [BACKEND:DEVICE_ID]
+
+Command 'assign':
+  usage: qvm-block assign [--verbose] [--quiet] [--help] [--version]
+                          [--option OPTION] [--ro] [--ask | --required]
+                          [--port | --device]
+                          VMNAME BACKEND:DEVICE_ID
+
+Command 'unassign':
+  usage: qvm-block unassign [--verbose] [--quiet] [--help] [--version] [--port |
+                            --device]
+                            VMNAME [BACKEND:DEVICE_ID]
+
+Command 'info':
+  usage: qvm-block info [--verbose] [--quiet] [--help] [--version]
+                        [BACKEND:DEVICE_ID]

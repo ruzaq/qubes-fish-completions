@@ -1,0 +1,29 @@
+usage: qvm-template-postprocess [--verbose] [--quiet] [--help] [--version]
+                                [--really] [--skip-start] [--keep-source]
+                                [--no-installed-by-rpm] [--allow-pv]
+                                [--pool POOL]
+                                {post-install,pre-remove} name dir
+
+Postprocess template package
+
+positional arguments:
+  {post-install,pre-remove}
+                        Action to perform
+  name                  Template name
+  dir                   Template directory
+
+options:
+  --verbose, -v         increase verbosity
+  --quiet, -q           decrease verbosity
+  --help, -h            show this help message and exit
+  --version             show program's version number and exit
+  --really              Really perform the action, YOU SHOULD REALLY KNOW WHAT
+                        YOU ARE DOING
+  --skip-start          Do not start the VM - do not retrieve menu entries
+                        etc.
+  --keep-source         Do not remove source data (*dir* directory) after
+                        import
+  --no-installed-by-rpm
+                        Do not set installed_by_rpm
+  --allow-pv            Allow setting virt_mode to pv in configuration file.
+  --pool POOL           Specify pool to store created VMs in.

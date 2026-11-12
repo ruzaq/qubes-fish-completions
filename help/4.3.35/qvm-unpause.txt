@@ -1,0 +1,16 @@
+usage: qvm-unpause [--verbose] [--quiet] [--help] [--version] [--all]
+                   [--exclude EXCLUDE]
+                   [VMNAME ...]
+
+unpause a domain
+
+positional arguments:
+  VMNAME             zero or more domain names
+
+options:
+  --verbose, -v      increase verbosity
+  --quiet, -q        decrease verbosity
+  --help, -h         show this help message and exit
+  --version          show program's version number and exit
+  --all              perform the action on all qubes
+  --exclude EXCLUDE  exclude the qube from --all

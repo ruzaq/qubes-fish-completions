@@ -1,0 +1,31 @@
+usage: qvm-tags [--verbose] [--quiet] [--help] [--version]
+                VMNAME {list,ls,l,add,a,set,del,d,unset,u} ...
+
+manage domain's tags
+
+positional arguments:
+  VMNAME                a domain name
+
+options:
+  --verbose, -v         increase verbosity
+  --quiet, -q           decrease verbosity
+  --help, -h            show this help message and exit
+  --version             show program's version number and exit
+
+commands:
+  For more information see qvm-tags command -h
+
+  {list,ls,l,add,a,set,del,d,unset,u}
+    list (ls,l)         list tags
+    add (a,set)         add tag
+    del (d,unset,u)     add tag
+
+Command 'list':
+  usage: qvm-tags VMNAME list [--verbose] [--quiet] [--help] [--version] [tag]
+
+Command 'add':
+  usage: qvm-tags VMNAME add [--verbose] [--quiet] [--help] [--version]
+                             tag [tag ...]
+
+Command 'del':
+  usage: qvm-tags VMNAME del [--verbose] [--quiet] [--help] [--version] tag

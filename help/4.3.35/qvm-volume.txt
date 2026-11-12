@@ -1,0 +1,52 @@
+usage: qvm-volume [--verbose] [--quiet] [--help] [--version]
+                  {info,i,config,c,set,s,resize,extend,list,ls,l,revert,rv,r,import,clear} ...
+
+Qubes volume management
+
+options:
+  --verbose, -v         increase verbosity
+  --quiet, -q           decrease verbosity
+  --help, -h            show this help message and exit
+  --version             show program's version number and exit
+
+commands:
+  For more information see qvm-volume command -h
+
+  {info,i,config,c,set,s,resize,extend,list,ls,l,revert,rv,r,import,clear}
+    info (i)            info about volume
+    config (c,set,s)    set config option for a volume
+    resize (extend)     resize volume for domain
+    list (ls,l)         list storage volumes
+    revert (rv,r)       revert volume to previous revision
+    import              import volume data
+    clear               clear volume data
+
+Command 'info':
+  usage: qvm-volume info [--verbose] [--quiet] [--help] [--version]
+                         VM:VOLUME [property]
+
+Command 'config':
+  usage: qvm-volume config [--verbose] [--quiet] [--help] [--version]
+                           VM:VOLUME property value
+
+Command 'resize':
+  usage: qvm-volume resize [--verbose] [--quiet] [--help] [--version] [--force]
+                           VM:VOLUME size
+
+Command 'list':
+  usage: qvm-volume list [--verbose] [--quiet] [--help] [--version]
+                         [-p POOL_NAME] [--full] [--all] [--exclude EXCLUDE]
+                         [VMNAME ...]
+
+Command 'revert':
+  usage: qvm-volume revert [--verbose] [--quiet] [--help] [--version]
+                           VM:VOLUME [REVISION]
+
+Command 'import':
+  usage: qvm-volume import [--verbose] [--quiet] [--help] [--version]
+                           [--size SIZE] [--no-resize]
+                           VM:VOLUME PATH
+
+Command 'clear':
+  usage: qvm-volume clear [--verbose] [--quiet] [--help] [--version] [--force]
+                          VM:VOLUME

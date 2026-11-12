@@ -1,3 +1,3 @@
-function __qvm_pools -d 'List QubesOS storage pools'
-    qvm-pool list 2>/dev/null | awk 'NR>1 {print $1}'
+function __qvm_pools -d 'Storage pools'
+    qvm-pool list 2>/dev/null | string match -rv '^NAME' | string replace -r '^(\S+)\s+' '$1\t'
 end

@@ -1,3 +1,3 @@
-function __qvm_block_ids -d 'List available block BACKEND:DEVICE_ID pairs'
-    qvm-device block list 2>/dev/null | awk 'NR>1 {print $1}'
+function __qvm_block_ids -d 'Available block devices, description included'
+    qvm-device block list 2>/dev/null | string match -rv '^BACKEND' | string replace -r '^(\S+)\s+' '$1\t'
 end

@@ -1,0 +1,29 @@
+usage: qvm-start-daemon [--verbose] [--quiet] [--help] [--version] [--all]
+                        [--exclude EXCLUDE] [--debug] [--watch]
+                        [--force-stubdomain] [--pidfile PIDFILE]
+                        [--notify-monitor-layout] [--kde] [--force]
+                        [VMNAME ...]
+
+start GUI or AUDIO for qube(s)
+
+positional arguments:
+  VMNAME                zero or more domain names
+
+options:
+  --verbose, -v         increase verbosity
+  --quiet, -q           decrease verbosity
+  --help, -h            show this help message and exit
+  --version             show program's version number and exit
+  --all                 perform the action on all qubes
+  --exclude EXCLUDE     exclude the qube from --all
+  --debug, -d           Show debug messages
+  --watch               Keep watching for further domain startups
+  --force-stubdomain    Start GUI to stubdomain-emulated VGA, even if gui-
+                        agent is running in the VM
+  --pidfile PIDFILE     Pidfile path to create in --watch mode
+  --notify-monitor-layout
+                        Notify running instance in --watch mode about changed
+                        monitor layout
+  --kde                 Set KDE specific arguments to gui-daemon.
+  --force               Force running daemon without enabled services 'guivm'
+                        or 'audiovm'

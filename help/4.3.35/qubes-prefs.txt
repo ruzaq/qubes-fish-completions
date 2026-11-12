@@ -1,0 +1,20 @@
+usage: qubes-prefs [--verbose] [--quiet] [--help] [--version]
+                   [--help-properties] [--hide-default] [--get] [--set]
+                   [--default]
+                   [PROPERTY] [VALUE]
+
+positional arguments:
+  PROPERTY           name of the property to show or change
+  VALUE              new value of the property
+
+options:
+  --verbose, -v      increase verbosity
+  --quiet, -q        decrease verbosity
+  --help, -h         show this help message and exit
+  --version          show program's version number and exit
+  --help-properties  list all available properties with short descriptions and
+                     exit
+  --hide-default     Do not show properties that are set to the default value.
+  --get, -g          Ignored; for compatibility with older scripts.
+  --set, -s          Ignored; for compatibility with older scripts.
+  --default, -D      reset property to its default value

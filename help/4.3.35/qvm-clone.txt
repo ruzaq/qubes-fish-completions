@@ -1,0 +1,22 @@
+usage: qvm-clone [--verbose] [--quiet] [--help] [--version] [--class CLS]
+                 [--ignore-errors] [-P POOL | -p VOLUME=POOL]
+                 VMNAME NEWVM
+
+Clone a domain
+
+positional arguments:
+  VMNAME                a domain name
+  NEWVM                 name of the domain to create
+
+options:
+  --verbose, -v         increase verbosity
+  --quiet, -q           decrease verbosity
+  --help, -h            show this help message and exit
+  --version             show program's version number and exit
+  --class, -C CLS       specify the class of the new domain (default: same as
+                        source)
+  --ignore-errors       log errors encountered during setting metadatabut
+                        continue clone operation
+  -P POOL               pool to use for the new domain
+  -p, --pool VOLUME=POOL
+                        specify the pool to use for the specific volume

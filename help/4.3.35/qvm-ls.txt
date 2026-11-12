@@ -1,0 +1,78 @@
+usage: qvm-ls [--verbose] [--quiet] [--help] [--version] [--all]
+              [--exclude EXCLUDE] [--format FORMAT] [--fields FIELD,...]
+              [--tree] [--raw-data] [--raw-list] [--disk] [--network]
+              [--kernel] [--help-formats] [--help-columns]
+              [--class CLASS [CLASS ...]] [--label LABEL [LABEL ...]]
+              [--tags TAG [TAG ...]] [--exclude-tags TAG [TAG ...]]
+              [--running] [--paused] [--halted]
+              [--template-source TEMPLATE [TEMPLATE ...]]
+              [--netvm-is NETVM [NETVM ...]] [--internal <y|n>]
+              [--servicevm <y|n>] [--pending-update]
+              [--features FEATURE=VALUE [FEATURE=VALUE ...]]
+              [--prefs PREFERENCE=VALUE [PREFERENCE=VALUE ...]]
+              [--sort COLUMN] [--reverse] [--ignore-case] [--spinner]
+              [--no-spinner]
+              [VMNAME ...]
+
+List Qubes domains and their parameters.
+
+positional arguments:
+  VMNAME                zero or more domain names
+
+options:
+  --verbose, -v         increase verbosity
+  --quiet, -q           decrease verbosity
+  --help, -h            show this help message and exit
+  --version             show program's version number and exit
+  --all                 perform the action on all qubes
+  --exclude EXCLUDE     exclude the qube from --all
+  --spinner             reenable spinner
+  --no-spinner          disable spinner
+
+formatting options:
+  --format, -o FORMAT   preset format
+  --fields, -O FIELD,...
+                        user specified format (see available columns below)
+  --tree, -t            sort domain list as network tree
+  --raw-data            Display specify data of specified VMs. Intended for bash-parsing.
+  --raw-list            Same as --raw-data --fields=name
+  --disk, -d            Same as --format=disk
+  --network, -n         Same as --format=network
+  --kernel, -k          Same as --format=kernel
+  --help-formats        list all available formats with their definitions and exit
+  --help-columns        list all available columns with short descriptions and exit
+
+filtering options:
+  --class CLASS [CLASS ...]
+                        show only qubes of specific class(es)
+  --label LABEL [LABEL ...]
+                        show only qubes with specific label(s)
+  --tags TAG [TAG ...]  show only qubes having specific tag(s)
+  --exclude-tags TAG [TAG ...]
+                        exclude qubes having specific tag(s)
+  --running             show running VMs
+  --paused              show paused VMs
+  --halted              show halted VMs
+  --template-source TEMPLATE [TEMPLATE ...]
+                        filter results to the qubes based on the TEMPLATE. "" means None
+  --netvm-is NETVM [NETVM ...]
+                        filter results to the qubes connecting via NETVM
+  --internal <y|n>      show only internal qubes or option to hide them
+  --servicevm <y|n>     show only ServiceVMs or option to hide them
+  --pending-update      filter results to qubes pending for update
+  --features FEATURE=VALUE [FEATURE=VALUE ...]
+                        filter results to qubes that matches all specified features. omitted VALUE means None (unset). Empty value means "" (blank)
+  --prefs PREFERENCE=VALUE [PREFERENCE=VALUE ...]
+                        filter results to qubes that matches all specified preferences. omitted VALUE means None (unset). Empty value means "" (blank)
+
+sorting options:
+  --sort COLUMN         sort based on provided column rather than NAME
+  --reverse             reverse sort
+  --ignore-case         ignore case distinctions when sorting
+
+available formats (see --help-formats):
+  disk, full, kernel, network, prefs, simple
+
+available columns (see --help-columns):
+  CLASS, DISK, FLAGS, GATEWAY, MEMORY, PRIV-CURR, PRIV-MAX, PRIV-POOL,
+  PRIV-USED, ROOT-CURR, ROOT-MAX, ROOT-POOL, ROOT-USED, STATE

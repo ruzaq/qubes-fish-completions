@@ -1,0 +1,51 @@
+usage: qvm-backup-restore [--verbose] [--quiet] [--help] [--version]
+                          [--verify-only] [--skip-broken] [--ignore-missing]
+                          [--skip-conflicting] [--rename-conflicting]
+                          [-x EXCLUDE] [--skip-dom0-home]
+                          [--ignore-username-mismatch] [--ignore-size-limit]
+                          [--compression-filter COMPRESSION] [-d APPVM]
+                          [-p PASS_FILE] [--auto-close]
+                          [--location-is-service] [--paranoid-mode]
+                          backup_location [vms ...]
+
+positional arguments:
+  backup_location       Backup directory name, or command to pipe from
+  vms                   Restore only those VMs
+
+options:
+  --verbose, -v         increase verbosity
+  --quiet, -q           decrease verbosity
+  --help, -h            show this help message and exit
+  --version             show program's version number and exit
+  --verify-only         Verify backup integrity without restoring any data
+  --skip-broken         Do not restore VMs that have missing TemplateVMs or
+                        NetVMs
+  --ignore-missing      Restore VMs even if their associated TemplateVMs and
+                        NetVMs are missing
+  --skip-conflicting    Do not restore VMs that are already present on the
+                        host
+  --rename-conflicting  Restore VMs that are already present on the host under
+                        different names
+  -x, --exclude EXCLUDE
+                        Skip restore of specified VM (may be repeated)
+  --skip-dom0-home      Do not restore dom0 user home directory
+  --ignore-username-mismatch
+                        Ignore dom0 username mismatch when restoring home
+                        directory
+  --ignore-size-limit   Ignore size limit calculated from backup metadata
+  --compression-filter, -Z COMPRESSION
+                        Force specific compression filter program, instead of
+                        the one from the backup header
+  -d, --dest-vm APPVM   Specify VM containing the backup to be restored
+  -p, --passphrase-file PASS_FILE
+                        Read passphrase from file, or use '-' to read from
+                        stdin
+  --auto-close          Auto-close restore window and display log on the
+                        stdout (applies to --paranoid-mode)
+  --location-is-service
+                        Interpret backup location as a qrexec service
+                        name,possibly with an argument separated by +.Requires
+                        -d option.
+  --paranoid-mode, --plan-b
+                        Isolate restore process in a DispVM, defend against
+                        untrusted backup;implies --skip-dom0-home

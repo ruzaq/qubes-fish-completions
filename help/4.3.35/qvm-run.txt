@@ -1,0 +1,56 @@
+usage: qvm-run [--verbose] [--quiet] [--help] [--version] [--user USER]
+               [--autostart] [--no-autostart] [--pass-io] [--localcmd COMMAND]
+               [--gui] [--no-gui] [--colour-output COLOUR]
+               [--colour-stderr COLOUR] [--no-colour-output]
+               [--no-colour-stderr] [--filter-escape-chars]
+               [--no-filter-escape-chars] [--service] [--no-shell]
+               [--dispvm [DISPOSABLE_TEMPLATE] | --all] [--exclude EXCLUDE]
+               [VMNAME] COMMAND ...
+
+positional arguments:
+  VMNAME                at most one domain name
+  COMMAND               command or service to run
+  ARG                   command arguments (implies --no-shell)
+
+options:
+  --verbose, -v         increase verbosity
+  --quiet, -q           decrease verbosity
+  --help, -h            show this help message and exit
+  --version             show program's version number and exit
+  --user, -u USER       run command in a qube as USER (available only from
+                        dom0)
+  --autostart, --auto, -a
+                        option ignored, this is default
+  --no-autostart, --no-auto, -n
+                        do not autostart/unpause qube
+  --pass-io, -p         pass stdio from remote program
+  --localcmd COMMAND    with --pass-io, pass stdio to the given program
+  --gui                 run the command with GUI (default on if "DISPLAY" is
+                        set, guivm property is set and gui feature is True)
+  --no-gui, --nogui     run the command without GUI
+  --colour-output, --color-output COLOUR
+                        mark the qube output with given ANSI colour (ie. "31"
+                        for red)
+  --colour-stderr, --color-stderr COLOUR
+                        mark the qube stderr with given ANSI colour (ie. "31"
+                        for red)
+  --no-colour-output, --no-color-output
+                        disable colouring the stdio
+  --no-colour-stderr, --no-color-stderr
+                        disable colouring the stderr
+  --filter-escape-chars
+                        filter terminal escape sequences (default if output is
+                        terminal)
+  --no-filter-escape-chars
+                        do not filter terminal escape sequences; DANGEROUS
+                        when output is a terminal emulator
+  --service             run a qrexec service (named by COMMAND) instead of
+                        shell command
+  --no-shell            treat COMMAND as a simple executable, not a shell
+                        command
+  --dispvm [DISPOSABLE_TEMPLATE]
+                        start a service in new disposable qube; optionally
+                        specify a disposable template, else the system default
+                        will be used
+  --all                 run command on all running qubes
+  --exclude EXCLUDE     exclude the qube from --all

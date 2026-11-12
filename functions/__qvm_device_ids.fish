@@ -1,8 +1,5 @@
-function __qvm_device_ids -d 'List BACKEND:DEVICE_ID for the device class on the current cmdline'
-    set -l tokens (commandline -opc)
-    # tokens[1]=qvm-device, tokens[2]=DEVICE_CLASS
-    set -l cls $tokens[2]
-    if test -n "$cls"
-        qvm-device $cls list 2>/dev/null | awk 'NR>1 {print $1}'
-    end
+function __qvm_device_ids -d 'Devices of the class given as the first positional argument'
+    set -l cls (__qvm_pos_arg 1)
+    test -n "$cls"; or return
+    qvm-device $cls list 2>/dev/null | string match -rv '^BACKEND' | string replace -r '^(\S+)\s+' '$1\t'
 end
